@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            width:40px;
+            height: 30px;
+            border-radius:5px;
+            background-color: rgba(250, 235, 215);
+            font-size: 15px;
+        }
+        #inp1{
+            width:95%;
+            text-align: right;
+        }
+        #equal{
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <table border="3" cellpadding="10" align="center" rules="all">
+        <tr>
+            <td colspan="4"><input type="text" id="inp1" placeholder="0"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="*" onclick="number1('*')"></td>
+            <td><input type="button" value="/" onclick="number1('/')"></td>
+            <td><input type="button" value="Del" onclick="delete1()"></td>
+            <td><input type="button" value="AC" onclick="cleardata()"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="9" onclick="number1(9)"></td>
+            <td><input type="button" value="8" onclick="number1(8)"></td>
+            <td><input type="button" value="7" onclick="number1(7)"></td>
+            <td rowspan="3"><input type="button" value="=" id="equal" onclick="call()"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="6" onclick="number1(6)"></td>.
+            <td><input type="button" value="5" onclick="number1(5)"></td>
+            <td><input type="button" value="4" onclick="number1(4)"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="3" onclick="number1(3)"></td>
+            <td><input type="button" value="2" onclick="number1(2)"></td>
+            <td><input type="button" value="1" onclick="number1(1)"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="0" onclick="number1(0)"></td>
+            <td><input type="button" value="." onclick="number1('.')"></td>
+            <td><input type="button" value="+" onclick="number1('+')"></td>
+            <td><input type="button" value="-" onclick="number1('-')"></td>
+        </tr>
+    </table>
+    <script>
+        function number1(num)
+        {
+            // console.log(num)
+            document.getElementById("inp1").value+=num;
+        }
+        function call()
+        {
+            let a=document.getElementById("inp1").value;
+            console.log(a)
+            let b=eval(a)
+            console.log(b)
+            document.getElementById("inp1").value=b
+        }
+        function cleardata()
+        {
+            // let a=document.getElementById("inp1").value;
+        //    console.log(typeof a)
+        document.getElementById("inp1").value=""
+        }
+        function delete1()
+        {
+            let a=document.getElementById("inp1")
+            a.value=a.value.slice(0,-1)
+        }
+
+    </script>
+</body>
+</html>
